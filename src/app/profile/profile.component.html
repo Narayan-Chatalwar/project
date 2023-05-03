@@ -1,0 +1,14 @@
+<div class="cardwrapper d-flex flex-column">
+    <h1>Profile Details</h1>
+    <div class="d-flex profilecard" style="gap: 20px;">
+        <div><img src="../../assets/userAvatar.png" class="profileImg" alt="Avatar" width="300"></div>
+        <div style="display:flex ;flex-direction: column; justify-content: center;">
+            <p><b>First Name : </b> {{profileDetails.firstname | titlecase}}</p>
+            <p><b>Last Name : </b> {{profileDetails.lastname | titlecase}}</p>
+            <p><b>User Name : </b> {{profileDetails.username}}</p>
+            <p><b>Mobile Number : </b>{{profileDetails.mobile}}</p>
+            <p><b>Password : </b>{{profileDetails.password}}</p>
+        </div>
+    </div>
+</div>
+

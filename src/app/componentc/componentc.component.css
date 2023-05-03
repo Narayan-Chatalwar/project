@@ -1,0 +1,10 @@
+
+.cardwrapper{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 85vw;
+    height: 93vh;
+    background-image: linear-gradient(rgb(190, 190, 190),rgb(213, 252, 184));
+}

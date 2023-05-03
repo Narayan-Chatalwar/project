@@ -1,0 +1,11 @@
+
+    <div class="cardwrapper">
+        <div *ngFor="let card of cards" class="cards">
+            <img [src]="card.img" alt="android">
+            <div class="cardContent">
+                <p class="heading">{{card.heading}}</p>
+                <p class="description">{{card.description}}</p>
+            </div>
+        </div>
+    </div>
+

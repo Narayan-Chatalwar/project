@@ -1,0 +1,118 @@
+<div class="tablewrapper">
+  <div class="tableHeader"><h3>Employee Details</h3> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" (click)="handleAddClick()" >Add New Record</button></div>
+    <div class="tableContainer">
+      <form [formGroup]="editDetail">
+      <table class="table mb-0">
+        <thead>
+          <tr>
+            <th scope="col" *ngFor="let header of tableHeader">{{header.title | uppercase}}</th>
+          </tr>
+        </thead>
+       
+        <tbody>
+          
+            <tr *ngFor="let row of tableData">
+              
+                <td scope="row" style="color: #666666;" *ngIf="editLine.id!==row.id" >{{row.name | titlecase}}</td>
+                <td *ngIf="editLine.id!==row.id">{{row.position | titlecase}}</td>
+                <td *ngIf="editLine.id!==row.id">{{row.contact}}</td>
+                <td *ngIf="editLine.id!==row.id">{{row.age}}</td>
+                <td *ngIf="editLine.id!==row.id">{{row.address | titlecase}}</td>
+                <td *ngIf="editLine.id!==row.id">&#8377;{{row.salary}}</td>
+
+                
+                  <td scope="row" *ngIf="editLine.id===row.id" > <input type="text" formControlName="name" placeholder="name" required></td>
+                  <td scope="row" *ngIf="editLine.id===row.id" > <input type="text" formControlName="position" placeholder="position" required></td>
+                  <td scope="row" *ngIf="editLine.id===row.id" > <input type="text" formControlName="contact" placeholder="contact" required></td>
+                  <td scope="row" *ngIf="editLine.id===row.id" > <input type="text" formControlName="age" placeholder="age" required></td>
+                  <td scope="row" *ngIf="editLine.id===row.id" > <input type="text" formControlName="address" placeholder="address" required></td>
+                  <td scope="row" *ngIf="editLine.id===row.id" > <input type="text" formControlName="salary" placeholder="salary" required></td>
+                
+
+
+                <td>
+                  <div *ngIf="editLine.id!==row.id">
+                    <button (click)="editClick(row)"  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="fa fa-edit"></i></button> &nbsp;
+                    <button (click)="editClickRow(row)"  class="btn btn-success">Edit</button>
+                  </div>
+                  <div *ngIf="editLine.id===row.id">
+                    <button  class="btn btn-warning" (click)="handleLineSave()" [disabled]="editDetail.invalid">Save</button> &nbsp;
+                    <button  class="btn btn-secondary" (click)="handleLineCancel(row)">X</button>
+                  </div>
+                </td>
+                <td><button (click)="handleDelete(row)" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+              
+            </tr>
+          
+        </tbody>
+        
+      </table>
+    </form>
+    </div>
+</div>
+
+<!-- Modal Edit-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Employee Detail</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="editDetail" (ngSubmit)="handleEditSubmit()" class="addBody">
+          <label for="name" >Employee Name:</label>
+          <input id="name" type="text" formControlName="name" placeholder="Enter Employee Name" required>
+          <label for="position">Position:</label>
+          <input id="position" type="text" formControlName="position" value='' placeholder="Enter Employee Position" required>
+          <label for="contact">Contact:</label>
+          <input id="contact" type="text" value='' formControlName="contact" placeholder="Enter Employee Contact" required>
+          <label for="age">Employee age:</label>
+          <input id="age" type="text" value='' formControlName="age" placeholder="Enter Employee Age" required>
+          <label for="address">Employee Address:</label>
+          <input id="address" type="text" value='' formControlName="address" placeholder="Enter Employee Address" required>
+          <label for="salary">Employee salary:</label>
+          <input id="salary" type="text" value='' formControlName="salary" placeholder="Enter Employee Salary" required>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" [disabled]="editDetail.invalid" data-bs-dismiss="modal">Save changes</button>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Add-->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Employee</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="addBody" [formGroup]="addForm">
+          <label for="name" >Employee Name:</label>
+          <input id="name" type="text" formControlName="name" placeholder="Enter Employee Name">
+          <label for="position">Position:</label>
+          <input id="position" type="text" formControlName="position" placeholder="Enter Employee Position">
+          <label for="contact">Contact:</label>
+          <input id="contact" type="text" formControlName="contact" placeholder="Enter Employee Contact">
+          <label for="age">Employee age:</label>
+          <input id="age" type="text" formControlName="age" placeholder="Enter Employee Age">
+          <label for="address">Employee Address:</label>
+          <input id="address" type="text" formControlName="address" placeholder="Enter Employee Address">
+          <label for="salary">Employee salary:</label>
+          <input id="salary" type="text" formControlName="salary" placeholder="Enter Employee Salary">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="handleAdd()" [disabled]="addForm.invalid" data-bs-dismiss="modal">Add Employee</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+
+.cardwrapper{
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    width: 85vw;
+    height: 93vh;
+    background-image: linear-gradient(rgb(190, 190, 190),rgb(213, 252, 184));
+}
+.profilecard{
+    width: max-content;
+    padding-right: 30px;
+    background-color: white;
+    border-radius: 5px;
+}
+.profileImg{
+    border-radius: 5px;
+}

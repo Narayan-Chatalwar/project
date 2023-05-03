@@ -1,0 +1,19 @@
+.main-navbar{
+    width: auto;
+    height: 60px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    align-items: center;
+    padding:0 48px;
+    border-bottom: 2px solid rgb(162, 162, 162);
+}
+.profileImg{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+.logo{
+    width: 122px;
+}

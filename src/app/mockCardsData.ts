@@ -1,0 +1,5 @@
+export const dummycardsdata:any=[
+    {id:'1',img:'../assets/android.jpeg',heading:'Build Amezing Mobile Apps',description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi nam aut ducimus, maxime provident quam incidunt dolor totam error dolores tempora architecto corporis aliquid tenetur sed nesciunt possimus est porro'},
+    {id:'2',img:'../assets/website.jpeg',heading:'Build Your Own Online Sites',description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi nam aut ducimus, maxime provident quam incidunt dolor totam error dolores tempora architecto corporis aliquid tenetur sed nesciunt possimus est porro'},
+    {id:'3',img:'../assets/automation.jpeg',heading:'Automate Your Bussiness',description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi nam aut ducimus, maxime provident quam incidunt dolor totam error dolores tempora architecto corporis aliquid tenetur sed nesciunt possimus est porro'},
+  ];

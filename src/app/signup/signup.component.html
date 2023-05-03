@@ -1,0 +1,23 @@
+<div class="main-loginContainer">
+    <form [formGroup]="signupDetail" (ngSubmit)="handleSignup()" class="container1">
+        <h2 style="text-align:center;margin-bottom: 10px;color: teal; ">User Signup</h2>
+        <label for="firstname"><b>First name :</b></label>
+        <input id="firstname" name="firstname" type="text" formControlName="firstname" placeholder="Enter Your First Name" required>
+        <span *ngIf="getValue.firstname.errors && getValue.firstname.touched" class="errorMsg">firstname errorMsg</span>
+        <label for="lastname"><b>Last name :</b></label>
+        <input id="lastname" name="lastname" type="text" formControlName="lastname" placeholder="Enter Your First Name" required>
+        <span *ngIf="getValue.lastname.errors && getValue.lastname.touched" class="errorMsg">lastname errorMsg</span>
+        <label for="username"><b>User name :</b></label>
+        <input id="username" name="username" type="text" formControlName="username" placeholder="Enter Your User Name" required>
+        <span *ngIf="getValue.username.errors && getValue.username.touched" class="errorMsg">username errorMsg</span>
+        <label for="mobile"><b>Mobile Number :</b></label>
+        <input id="mobile" name="mobile" type="text" formControlName="mobile" placeholder="Enter Your User Mobile no." required>
+        <span *ngIf="getValue.mobile.errors && getValue.mobile.touched" class="errorMsg">mobile errorMsg</span>
+        <label for="password"><b>Password :</b></label>
+        <input id="password" name="password" type="password" formControlName="password" placeholder="Enter Your Password" required>
+        <span *ngIf="getValue.password.errors && getValue.password.touched" class="errorMsg">password errorMsg</span>
+        <button type="submit" class="loginbtn" [disabled]="signupDetail.invalid">Signup</button>
+        <p style="font-size: 13px;">Already a User ? <a routerLink="../login">Login</a></p>
+    </form>
+</div>
+    

@@ -1,0 +1,15 @@
+<div class="main-navbar">
+    <img class="logo" src="../../assets/inspironlogo.svg" alt="logo">
+    <div class="dropdown">
+        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+            {{userCredentials[0].firstname | titlecase }} {{userCredentials[0].lastname | titlecase }} 
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" [routerLink]="'/admin/profile'">Profile Details</a></li>
+          <li><a class="dropdown-item" routerLink="/admin/dashboard">Settings</a></li>
+          <li><a class="dropdown-item" (click)="handleLogout()">Logout</a></li>
+        </ul>
+        <img class="profileImg" (click)="handleProfileClick()" src="../../assets/userAvatar.png" alt="Avatar">
+      </div>
+</div>
+

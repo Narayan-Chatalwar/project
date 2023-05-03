@@ -1,0 +1,14 @@
+
+<div class="main-loginContainer">
+<form [formGroup]="loginDetail" (ngSubmit)="handleLogin()" class="container1">
+    <h2 style="text-align:center;margin-bottom: 10px;color: teal; ">User Login </h2>
+    <label for="username"><b>User name :</b></label>
+    <input id="username" name="username" type="text" formControlName='username'  placeholder="Enter Your User Name" required >
+    <span *ngIf="getValue.username.errors && getValue.username.touched" class="errorMsg">{{getUserNameErrror()}}</span>
+    <label for="password"><b>Password :</b></label>
+    <input id="password" name="password" type="password" formControlName='password'  placeholder="Enter Your Password" required>
+    <div *ngIf="getValue.password.errors && getValue.password.touched" class="errorMsg">{{getPasswordErrror()}} </div>
+    <button type="submit" [disabled]="loginDetail.invalid" class="loginbtn">Login</button>
+    <p style="font-size: 13px;">New User ? <a routerLink="../signup">Signup</a></p>
+</form>
+</div>
