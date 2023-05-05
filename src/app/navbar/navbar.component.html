@@ -2,14 +2,14 @@
     <img class="logo" src="../../assets/inspironlogo.svg" alt="logo">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
-            {{userCredentials[0].firstname | titlecase }} {{userCredentials[0].lastname | titlecase }} 
+            {{userCredentials.firstname | titlecase }} {{userCredentials.lastname | titlecase }} 
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" [routerLink]="'/admin/profile'">Profile Details</a></li>
-          <li><a class="dropdown-item" routerLink="/admin/dashboard">Settings</a></li>
-          <li><a class="dropdown-item" (click)="handleLogout()">Logout</a></li>
+          <li><a class="dropdown-item" [routerLink]="'/admin/profile'"> <i class="fa-solid fa-user"></i>&nbsp; Profile Details</a></li>
+          <li><a class="dropdown-item" routerLink="/admin/dashboard"><i class="fa-solid fa-gear"></i>&nbsp; Settings</a></li>
+          <li><a class="dropdown-item" (click)="handleLogout()"><i class="fa-solid fa-right-from-bracket"></i>&nbsp; Logout</a></li>
         </ul>
-        <img class="profileImg" (click)="handleProfileClick()" src="../../assets/userAvatar.png" alt="Avatar">
+        <img class="profileImg" [src]="userCredentials.profileImg" alt="Avatar">
       </div>
 </div>
 

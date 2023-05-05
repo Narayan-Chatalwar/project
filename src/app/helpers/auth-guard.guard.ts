@@ -14,11 +14,10 @@ export class AuthGuardGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const isAuth = this.loginService.checkIsAuth();
-      console.log(isAuth,"isAuth status");
+     
       
       if (isAuth) {
           // authorised so return true
-         
           return true;
       }
           

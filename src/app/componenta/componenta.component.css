@@ -1,11 +1,14 @@
-
+.mainComponenta{
+    background-image: linear-gradient(rgb(190, 190, 190),rgb(213, 252, 184));
+    height: 93vh;
+}
 .tablewrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 85vw;
-    height: 93vh;
-    background-image: linear-gradient(rgb(190, 190, 190),rgb(213, 252, 184));
+    /* height: 93vh; */
+    /* background-image: linear-gradient(rgb(190, 190, 190),rgb(213, 252, 184)); */
 }
 .table{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -34,8 +37,19 @@
     overflow:auto;
 }
 tr>td>input{
-    max-width: 100px;
+    max-width: 90px;
     min-width: 30px;
     padding: 5px;
     border-radius: 5px;
+}
+.backbutton{
+    padding: 20px;
+}
+.active{
+    background-color: lightgray;
+   
+}
+.errorMsg{
+    color: red;
+    font-size: 13px;
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { LoginserviceService } from '../loginservice.service';
+import { UserserviceService } from '../services/userservice.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { LoginserviceService } from '../loginservice.service';
 })
 export class LoginComponent {
 
-  constructor(private router: Router, private loginService:LoginserviceService , private formBuilder:FormBuilder) { }
+  constructor(private router: Router, private loginService:LoginserviceService ,private userservice:UserserviceService, private formBuilder:FormBuilder) { }
 
   loginDetail!: FormGroup;
 
@@ -50,7 +51,6 @@ export class LoginComponent {
 
   handleLogin(){
    
-   
    if(this.loginDetail.value.username && this.loginDetail.value.password){
   
     
@@ -59,9 +59,12 @@ export class LoginComponent {
     if(this.signUpUsers){
      this.isAvailable=this.signUpUsers.filter((item:any) =>item.username === this.loginDetail.value.username && item.password === this.loginDetail.value.password );
       
-      if(this.isAvailable.length===1){
+      if(this.isAvailable && this.isAvailable.length===1){
         
         localStorage.setItem("currentuserDetails",JSON.stringify(this.isAvailable));
+        this.userservice.setUser(this.isAvailable);
+        console.log(this.isAvailable,'isAvailable');
+        
         this.router.navigate(['/admin/componenta']);
       }
       else{

@@ -28,6 +28,7 @@ export class SignupComponent {
       username: ['',[Validators.required]],
       mobile: ['',[Validators.required]],
       password: ['',[Validators.required]],
+      profileImg:['']
     })
   }
 
@@ -46,10 +47,9 @@ export class SignupComponent {
       username:this.signupDetail.value.username,
       mobile:this.signupDetail.value.mobile,
       password:this.signupDetail.value.password,
+      profileImg:'../../assets/userAvatar.png',
     }
 
-    console.log(this.params,'params',this.prevUsers,'prevusers');
-    
   
 
    if(this.prevUsers && this.prevUsers.length===1){

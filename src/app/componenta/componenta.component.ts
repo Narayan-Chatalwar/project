@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { dummytableData } from '../mockTableData';
 import { TableData, TableHeader } from '../TableData';
 import { TabledataService } from '../tabledata.service';
 
@@ -19,16 +17,18 @@ export class ComponentaComponent {
   editId:any;
   editLine:any=[];
   editRowDetail:any=[];
+  detailView:boolean=false;
+  viewDetailsValues:any=[];
+  allViewed:any=[];
+
+
 
   constructor (private tableDataService : TabledataService, private formBuilder:FormBuilder){}
 
   ngOnInit():void{
-    //  if(this.tableData.length===0){
+   
       this.getTableHeader();
       this.getTableData();
-    //  }
-    
-    console.log('ngoninit triggered');
     
 
     this.addForm = this.formBuilder.group({
@@ -51,7 +51,54 @@ export class ComponentaComponent {
 
   }
 
+  get getValues():any{
+    return this.editDetail.controls;
+  }
+  get getNewValue():any{
+    return this.addForm.controls;
+  }
+  
+  //edit form errors
+  getNameErrror():any{
+    return this.getValues.name.errors.required ? 'Employee Name is required': '';
+  }
+  getPositionErrror():any{
+    return this.getValues.position.errors.required ? 'Employee Position  is required': '';
+  }
+  getContactErrror():any{
+    return this.getValues.position.errors.required ? 'Employee Contact  is required': '';
+  }
+  getAgeErrror():any{
+    return this.getValues.position.errors.required ? 'Employee Age  is required': '';
+  }
+  getAddressErrror():any{
+    return this.getValues.position.errors.required ? 'Employee Address  is required': '';
+  }
+  getSalaryErrror():any{
+    return this.getValues.position.errors.required ? 'Employee Salary  is required': '';
+  }
 
+
+//new form errors
+
+  getNewNameErrror():any{
+    return this.getNewValue.name.errors.required ? 'Employee Name is required': '';
+  }
+  getNewPositionErrror():any{
+    return this.getNewValue.position.errors.required ? 'Employee Position  is required': '';
+  }
+  getNewContactErrror():any{
+    return this.getNewValue.position.errors.required ? 'Employee Contact  is required': '';
+  }
+  getNewAgeErrror():any{
+    return this.getNewValue.position.errors.required ? 'Employee Age  is required': '';
+  }
+  getNewAddressErrror():any{
+    return this.getNewValue.position.errors.required ? 'Employee Address  is required': '';
+  }
+  getNewSalaryErrror():any{
+    return this.getNewValue.position.errors.required ? 'Employee Salary  is required': '';
+  }
   // handling add logic
   handleAddClick(){
     this.addForm = this.formBuilder.group({
@@ -111,17 +158,27 @@ export class ComponentaComponent {
 
 
 
-
+//get controls of the form
   get getEditValue():any{
     return this.editDetail.controls;
   }
   get getAddValue():any{
     return this.addForm.controls;
   }
+//
+
+
+
+  //handle delete entry
 
   handleDelete(row:any){
     this.tableData = this.tableData.filter((item)=>item.id!==row.id);
   }
+  //
+
+
+
+  //handle add new entry
 
   handleAdd(){
     
@@ -136,6 +193,12 @@ export class ComponentaComponent {
     })
     
   }
+//
+
+
+
+
+//handle edit submit
 
   handleEditSubmit(){
  
@@ -152,11 +215,52 @@ export class ComponentaComponent {
     }
     
   }
+  //
+
+
+
+
+  //get data from the services
+
   getTableHeader(){
     this.tableDataService.getTableHeaders().subscribe((tableHeader) => this.tableHeader = tableHeader);
   }
   getTableData(){
     this.tableDataService.getTabledata().subscribe((tableData) => this.tableData = tableData);
+  }
+
+  //
+
+
+
+//view details
+  viewDetails(row:any){
+    this.detailView=true;
+    this.viewDetailsValues=row;
+    // this.allViewed.push(row);
+  }
+
+  handleBack(){
+    // this.detailView=false;
+    // this.viewDetailsValues=[];
+    // console.log(this.allViewed,'allViewed');
+    
+  }
+  
+  detailStyling(row:any){
+    if(this.allViewed.includes(row)){
+      return true;
+    }
+    return false
+  }
+
+  getData(row: any) {
+    if(!this.allViewed.includes(row)){
+      this.allViewed.push(row);
+    }
+    this.detailView = false;
+    console.log(this.allViewed,'allviewed');
+    
   }
 
 }

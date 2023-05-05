@@ -1,14 +1,48 @@
 <div class="cardwrapper d-flex flex-column">
-    <h1>Profile Details</h1>
-    <div class="d-flex profilecard" style="gap: 20px;">
-        <div><img src="../../assets/userAvatar.png" class="profileImg" alt="Avatar" width="300"></div>
-        <div style="display:flex ;flex-direction: column; justify-content: center;">
-            <p><b>First Name : </b> {{profileDetails.firstname | titlecase}}</p>
-            <p><b>Last Name : </b> {{profileDetails.lastname | titlecase}}</p>
-            <p><b>User Name : </b> {{profileDetails.username}}</p>
-            <p><b>Mobile Number : </b>{{profileDetails.mobile}}</p>
-            <p><b>Password : </b>{{profileDetails.password}}</p>
+    <div class="upperProfile">
+        <h1>Profile Details</h1>
+        <button *ngIf="!editMode" class="btn btn-secondary" (click)="editProfile()"><i class="fa-solid fa-pen-to-square"></i></button>
+        <div *ngIf="editMode" style="display:flex; gap: 20px; height: 40px;">
+            <button class="btn btn-success" (click)="handleProfileSave()" [disabled]="profileEditForm.invalid"><i class="fa-solid fa-floppy-disk"></i></button>
+            <button class="btn btn-warning" (click)="closeEditProfile()">X</button>
+        </div>
+        
+    </div>
+    
+    <div *ngIf="!editMode" class="profilecard">
+        <div ><img [src]="profileDetails.profileImg" class="profileImg" alt="Avatar" width="300" height="300"></div>
+        <div class="profiletext">
+            <div ><b>First Name : </b> <p>{{profileDetails.firstname}}</p></div>
+            <div ><b>Last Name : </b><p>{{profileDetails.lastname}}</p></div>
+            <div ><b>User Name : </b><p>{{profileDetails.username}}</p></div>
+            <div ><b>Mobile Number : </b><p>{{profileDetails.mobile}}</p></div>
+            <div ><b>Password : </b><p>{{profileDetails.password}}</p></div>
         </div>
     </div>
+    <form *ngIf="editMode" [formGroup]="profileEditForm">
+        <div class="profilecard editCard" >
+            
+           
+            <div class="ProfileImgDiv">
+                <img class="profileImg" [src]="profileImgUrl ? profileImgUrl : profileDetails.profileImg" alt="profile img" width="300" height="300"/>
+                <div class="overlay"></div>
+                <label for="inputTag">
+                    <br/>
+                   <input id="inputTag" (change)="imgUpload($event)"  type="file"/>
+                   <br/>
+                   <span class="button"><i class="fa-solid fa-cloud-arrow-up fa-2xs" style="color: #ffffff;font-size: 40px;"></i></span>
+                 </label>
+                
+            </div>
+            <div class="profiletext" style="gap: 14px;">
+                <div ><b>First Name : </b> <input type="text" formControlName="firstname" required></div>
+                <div ><b>Last Name : </b><input type="text" formControlName="lastname" required></div>
+                <div ><b>User Name : </b> <input type="text" formControlName="username" required></div>
+                <div ><b>Mobile Number : </b><input type="text" formControlName="mobile" required></div>
+                <div ><b>Password : </b><input type="text" formControlName="password" required></div>
+            </div>
+            
+        </div>
+    </form>
 </div>
 

@@ -2,17 +2,124 @@
 .cardwrapper{
     display: flex;
     gap: 20px;
-    padding: 20px;
+    padding: 60px;
     width: 85vw;
     height: 93vh;
     background-image: linear-gradient(rgb(190, 190, 190),rgb(213, 252, 184));
 }
 .profilecard{
-    width: max-content;
-    padding-right: 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     background-color: white;
     border-radius: 5px;
 }
 .profileImg{
     border-radius: 5px;
 }
+.upperProfile{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.upperProfile>button{
+    height: 40px;
+}
+.profiletext{
+    display:flex ;
+    flex-direction: column;
+    justify-content: center; 
+    flex: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.profiletext>div{
+    display:flex ;
+    flex-direction: row; 
+    justify-content: space-between; 
+    width: 100%; 
+    gap: 20px;
+}
+.profiletext>div>input,p{
+    padding:0 5px;
+    border-radius: 5px;
+}
+.ProfileImgDiv>img:hover{
+   border: 2px solid red;
+}
+
+
+
+
+
+/* image hover */
+
+.ProfileImgDiv {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.5s ease;
+  }
+  
+  .ProfileImgDiv:hover .overlay {
+    display: block;
+    background: rgba(0, 0, 0, .3);
+  }
+  
+  .ProfileImgDiv>img {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 0;
+  }
+  
+  .icon {
+    position: absolute;
+    width: 300px;
+    left: 0;
+    top: 120px;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    z-index: 1;
+    transition: top .5s ease;
+  }
+  
+  .ProfileImgDiv:hover .icon {
+    top: 90px;
+  }
+  
+  .button {
+    position: absolute;
+    width: 300px;
+    left:0;
+    top: 150px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  
+  .button a {
+    width: 200px;
+    padding: 12px 48px;
+    text-align: center;
+    color: white;
+    border: solid 2px white;
+    z-index: 1;
+  }
+  
+  .ProfileImgDiv:hover .button {
+    opacity: 1;
+  }
+  

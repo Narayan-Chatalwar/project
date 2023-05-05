@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserserviceService } from '../services/userservice.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,25 +9,20 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private userservice : UserserviceService) { }
 
   userCredentials?:any={};
   details?:any={};
 
   
-  ngOnInit():void{
-    this.details=localStorage.getItem('currentuserDetails');
+  ngOnInit(){
+ 
+    this.userservice.getUser().subscribe(value=>this.userCredentials=value);
+    // console.log(this.userCredentials);
     
-    if(!this.details){
-      this.router.navigate(['/login']);
-    }
-    this.userCredentials=JSON.parse(this.details);
-    // console.log(this.userCredentials.username);
     
   }
-  handleProfileClick(){
-    // alert("profile is clicked")
-  }
+  
 
 
   handleLogout(){

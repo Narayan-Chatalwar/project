@@ -16,9 +16,9 @@ export class LoginserviceService {
     
       const currentUser = localStorage.getItem('currentuserDetails');
       const isAuth = currentUser && JSON.parse(currentUser);
-      console.log(isAuth,'login service');
       
-      if(isAuth.length>0){
+      
+      if(isAuth.length){
         this.isAuth = true;
         return true;
       } else {

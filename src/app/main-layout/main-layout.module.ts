@@ -9,8 +9,8 @@ import { ComponentbComponent } from '../componentb/componentb.component';
 import { ComponentcComponent } from '../componentc/componentc.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DetailsComponent } from '../details/details.component';
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ComponentaComponent,
     ComponentbComponent,
     ComponentcComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,

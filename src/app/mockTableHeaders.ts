@@ -6,5 +6,7 @@ export const dummytableHeaders:any = [
     {id:'105',title:'Address'},
     {id:'106',title:'Salary'},
     {id:'107',title:'Edit'},
-    {id:'107',title:'Delete'}
+    {id:'108',title:'Del'},
+    {id:'109',title:'View'}
+   
 ];
