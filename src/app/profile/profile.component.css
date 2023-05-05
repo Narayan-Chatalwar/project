@@ -52,7 +52,7 @@
 
 
 
-/* image hover */
+/* profileimage hover */
 
 .ProfileImgDiv {
     position: relative;
@@ -64,7 +64,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 300px;
+    width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0);
     transition: background 0.5s ease;
@@ -104,12 +104,13 @@
     position: absolute;
     width: 300px;
     left:0;
-    top: 150px;
+    top: 130px;
     text-align: center;
     opacity: 0;
     transition: opacity .35s ease;
   }
-  
+ 
+ 
   .button a {
     width: 200px;
     padding: 12px 48px;
@@ -123,3 +124,14 @@
     opacity: 1;
   }
   
+
+
+  @media only screen and (max-width: 750px) {
+    .cardwrapper{
+        width:100vw;
+    }
+    .profilecard{
+      flex-direction: column;
+      gap: 20px;
+    }
+}

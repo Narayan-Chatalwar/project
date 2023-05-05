@@ -36,8 +36,8 @@
 
 
                 <td>
-                  <div *ngIf="editLine.id!==row.id">
-                    <button (click)="editClick(row)"  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="fa fa-edit"></i></button> &nbsp;
+                  <div *ngIf="editLine.id!==row.id" style="display: flex;gap:20px;">
+                    <button (click)="editClick(row)"  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" ><i class="fa fa-edit"></i></button> 
                     <button (click)="editClickRow(row)"  class="btn btn-success"><i class="fa fa-edit"></i></button>
                   </div>
                   <div *ngIf="editLine.id===row.id">

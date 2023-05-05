@@ -8,3 +8,10 @@
     height: 93vh;
     background-image: linear-gradient(rgb(190, 190, 190),rgb(213, 252, 184));
 }
+
+
+@media only screen and (max-width: 900px) {
+    .cardwrapper{
+        width:100vw;
+    }
+}

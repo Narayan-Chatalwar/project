@@ -17,3 +17,10 @@
 .logo{
     width: 122px;
 }
+
+@media only screen and (max-width: 600px) {
+    .main-navbar{
+        gap: 10px;
+        padding: 10px;
+    }
+}

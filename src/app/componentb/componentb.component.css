@@ -1,9 +1,13 @@
 
 .cardwrapper{
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    overflow-y: scroll;
     align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
     width: 85vw;
     height: 93vh;
     background-image: linear-gradient(rgb(190, 190, 190),rgb(213, 252, 184));
@@ -28,4 +32,11 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .description{
     font-size: 10px;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .cardwrapper{
+        width:100vw;
+    }
 }

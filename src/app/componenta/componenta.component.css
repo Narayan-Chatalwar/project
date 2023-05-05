@@ -34,7 +34,9 @@
 }
 .tableContainer{
     width: 100%;
-    overflow:auto;
+    overflow:scroll;
+    height: 80vh;
+    
 }
 tr>td>input{
     max-width: 90px;
@@ -52,4 +54,10 @@ tr>td>input{
 .errorMsg{
     color: red;
     font-size: 13px;
+}
+
+@media only screen and (max-width: 900px) {
+    .tablewrapper{
+        width:100vw;
+    }
 }
